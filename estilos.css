@@ -1271,7 +1271,13 @@ ENTRADA
 }
 
 /* Estilos específicos para pantallas grandes */
-@media (min-width: 992px) {
+@media (min-width: 992px)
+.videos-container .card-video .video {
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+    padding-bottom: 55%;
+}
     .videos-container h1 {
         font-size: 3rem;
         padding: 20px 5px;
