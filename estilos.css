@@ -19,6 +19,7 @@ a {
 h1, h2, h3, h4, h5, h6 {
     font-family:  'Noto Serif', serif;
     font-weight: 600;
+    color: rgb(0, 59, 74);
 }
 main {
     position: relative; /* Asegura que el main tenga una posición relativa */
@@ -46,7 +47,7 @@ header {
 header .logo img {
     height: 40px;
     width: auto;
-    padding-left: 30px;  /*revisar que en tamaño movil y tablet no hay padding left*/
+    padding-left: 30px;  
 }
 
 header nav {
@@ -56,7 +57,7 @@ header nav {
 }
 header nav ul {
     align-items: center;
-    padding-right: 30px; /*revisar que en tamaño movil y tablet no hay padding right*/
+    padding-right: 30px; 
     font-family: 'Lato', sans-serif;
     font-weight: 900;
     font-size: medium;
@@ -69,6 +70,9 @@ header nav ul li {
     color:rgb(0, 59, 74);
 }
 
+header nav ul li a {
+    color:  rgb(0, 59, 74);
+}
 header nav ul li a:hover {
     color: rgb(191, 12, 240);
 }
@@ -94,7 +98,6 @@ Footer
 /* Estilos generales del footer */
 footer {
     background-color: rgba(0, 59, 74, 0.70);
-    padding: 20px 0;
     color: white;
     font-size: 1rem;
     font-family: 'Lato', sans-serif;
@@ -104,8 +107,6 @@ footer {
     bottom: 0;
     left: 0;
     padding: 20px 0;
-    font-size: 1rem;
-    font-family: 'Lato', sans-serif;
 }
 
 
@@ -114,7 +115,7 @@ footer {
     padding-right: 15px; 
 
 }
-.container {
+footer .container {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -124,7 +125,13 @@ footer {
 }
 
 /* Estilos específicos para dispositivos móviles y pantallas más pequeñas */
-@media (max-width: 767px) {
+@media (max-width: 992px) {
+    footer .container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
     .bloqueFooter1,
     .bloqueFooter2 {
         width: 100%;
@@ -199,7 +206,7 @@ footer {
 }
 
 /* Estilos específicos para tamaños de pantalla mayores (escritorio) */
-@media (min-width: 768px) {
+@media (min-width: 992px) {
     footer .container {
         justify-content: space-between; /* Mantiene el espacio entre los elementos */
     }
@@ -268,7 +275,7 @@ footer .container .bloqueFooter2 {
 }
 footer .container .bloqueFooter2 a {
     display: flex;
-    align-items: end;
+    align-items: flex-end;
     padding-left: 10px;
     justify-content: center;
 }
@@ -289,7 +296,7 @@ Página de inicio
 /***********Bloque 1***********/
 
 body.home .Bloque1 {
-    background-image: url(img/hero-image-home.jpg);
+    background-image: url(../img/hero-image-home.jpg);
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center center;
@@ -754,18 +761,18 @@ a:hover.leer-mas {
     text-decoration: underline dotted;
 }
 
-.blog-botones-paginacion { /*ajustamos los botones al centro del espacio*/
+.blog-nav-paginacion { /*ajustamos los botones al centro del espacio*/
     margin: auto;
     padding-top: 50px;
     padding-bottom: 50px;
 }
 
-.blog-botones-paginacion ul { /*Hacemos que estén en línea*/
+.blog-nav-paginacion ul { /*Hacemos que estén en línea*/
     display: flex;
     list-style-type: none;
 }
 
-.blog-botones-paginacion ul li { /*Hacemos que tengan cuerpo y separamos*/
+.blog-nav-paginacion ul li { /*Hacemos que tengan cuerpo y separamos*/
     background-color: rgb(255, 255, 255);
     color:   rgb(0, 59, 74);
     padding: 5px;
@@ -774,19 +781,23 @@ a:hover.leer-mas {
     width: 25px;
 }
 
-.blog-botones-paginacion ul .current {
+.blog-nav-paginacion ul .current {
     background-color: rgb(191, 12, 240);
     color:  rgb(255, 255, 255);
     border: 0;
     display: flex;
 }
+.blog-nav-paginacion ul .current a {
+    background-color: rgb(191, 12, 240);
+    color:  rgb(255, 255, 255);
+}
 
-.blog-botones-paginacion ul .not-current {
+.blog-nav-paginacion ul .not-current {
     background-color: rgb(255, 255, 255);
     display: flex;
 }
 
-.blog-botones-paginacion ul li button {
+.blog-nav-paginacion ul li a {
     border: 0;
     font-family: 'Lato', sans-serif;
     font-size: 1rem;
@@ -795,6 +806,7 @@ a:hover.leer-mas {
     margin: auto;
     background-color: rgb(255, 255, 255);
     cursor: pointer;
+    color: rgb(0, 59, 74);
 }
 
 
@@ -823,7 +835,7 @@ a:hover.leer-mas {
         grid-column: 1 / -1; /* Abarca todas las columnas*/
         text-align: start;
     }
-    .blog-container .blog-botones-paginacion {
+    .blog-container .blog-nav-paginacion {
             margin-top: 10px;
             grid-column: 1 / -1; /* Abarca todas las columnas */
             text-align: center;
@@ -836,7 +848,7 @@ a:hover.leer-mas {
     .blog-container .articulo-blog-1 figure img {
         max-width: 100%;
     }
-    .blog-botones-paginacion {
+    .blog-nav-paginacion {
         margin: auto;
         justify-content: center;
         display: flex;
@@ -936,39 +948,48 @@ ENTRADA
 }
 
 /**************CARD1***************/
+
+.container-card1 {
+    width: 100%;
+    background-color: rgb(229, 225, 254); /* Fondo común para la entrada */
+    margin-bottom: 30px;
+
+}
 .entrada-container .entrada-card1 {
     width: 100%;
-    padding: 10px;
-    margin-bottom: 30px;
+    background-color: rgb(229, 225, 254); /* Fondo común para la entrada */
+    overflow: hidden; /* Limpiar el float generado por la imagen */
 }
 
 .card-info {
-    background-color: rgb(229, 225, 254); /*NO PUEDO QUITAR EL ESPACIO ENTRE LA FOTO Y ESTE DIV*/
     padding: 10px;
     margin-top: 0;
 }
 
 .entrada-container .entrada-card1 img {
+    margin-bottom: 0;
     width: 100%;
     height: auto;
-    margin-bottom: 0;
+    display: block; /* Evitar espacio adicional debajo de la imagen */
 }
 
 .entrada-container .entrada-card1 h1 {
     font-size: 2.5rem;
     line-height: 1.2;
-    margin-bottom: 10px;
+    margin-bottom: 5px;
 }
 
-.entrada-container .entrada-card1 figcaption {
+.container-card1 .author {
     color: rgb(158, 157, 171);
-    font-size: 1REM;
+    font-size: 1rem;
+    padding: 10px;
+    margin-top: 0; /* Asegurar que no haya margen superior en el figcaption */
 }
-.entrada-container .entrada-card1 figcaption a {
+.entrada-container .author a {
     color: rgb(0, 59, 74);
     text-decoration: none;
 }
-.entrada-container .entrada-card1 figcaption a:hover {
+.entrada-container .entrada-card1 .author a:hover {
     color: rgb(191, 12, 240);
 }
 
@@ -1036,7 +1057,7 @@ ENTRADA
 
 /******ARTICULOS RECIENTES*********/
 
-.entrada-articulosrecientes h3 {
+.entrada-articulosrecientes h2 {
     font-family: 'Lato', sans-serif;
     margin-bottom: 5px;
     font-size: 2rem;
@@ -1081,46 +1102,47 @@ ENTRADA
 }
 .entrada-articulosrecientes .articulo-blog .info-entrada p {
     color: rgb(158, 157, 171);
-    margin-bottom: 20px;
+}
+.entrada-articulosrecientes .articulo-blog .info-entrada{
+    padding: 10px;
 }
 
 /******CATEGORÍAS*********/
 
-.entrada-botones-categorias {
+.entrada-recuadro-categorias {
     padding: 20px 0;
     margin-bottom: 80px;
 }
-.entrada-botones-categorias ul { /*Hacemos que estén en línea*/
-    display: flex;
+.entrada-recuadro-categorias ul { /*Hacemos que estén en línea*/
+    flex-wrap: wrap;
     list-style-type: none;
 }
 
-.entrada-botones-categorias ul .categoria { /*Hacemos que tengan cuerpo y separamos*/
+.entrada-recuadro-categorias .categoria { /*Hacemos que tengan cuerpo y separamos*/
     background-color: rgb(255, 255, 255);
     color:   rgb(0, 59, 74);
     padding: 3px;
     margin: 5px;
     border: 2px solid rgb(0, 59, 74);
-    width: auto;
 }
-
-.entrada-botones-categorias ul .categoria button {
+.entrada-recuadro-categorias ul .categoria {
+    width: fit-content;
+    display: inline-flex;
+}
+.entrada-recuadro-categorias ul .categoria a {
     background-color: rgb(255, 255, 255);
-    border: 0;
-    display: flex;
     color:   rgb(0, 59, 74);
     font-family: 'Lato', sans-serif;
     font-size: 0.70rem;
     font-weight: 700;
-    justify-content: center;
     align-items: center;
-    margin: auto;
     cursor: pointer;
+    
 }
 
 /* Estilos específicos para tablets y pantallas medianas  */
 @media (min-width: 768px) {
-    .entrada-articulosrecientes h3 {
+    .entrada-articulosrecientes h2 {
         grid-column: 1 / -1; /* Abarca todas las columnas */    
     }
     .entrada-articulosrecientes .articulos-recientes{
@@ -1130,24 +1152,35 @@ ENTRADA
     }
     .entrada-articulosrecientes .articulos-recientes .info-entrada {
         padding: 5px;
-        justify-content: center;
     }
     .entrada-articulosrecientes .articulos-recientes .info-entrada h2 {
         font-size: 1rem;
     }
-    .entrada-botones-categorias ul .categoria button {
-        font-size: 1.5rem;
-        margin: auto;
-        padding:10px;
-        gap: 10px;
+    .entrada-recuadro-categorias ul .categoria {
+        width: fit-content;
+        display: inline-flex;
+    }
+    .entrada-recuadro-categorias ul .categoria a {
+        background-color: rgb(255, 255, 255);
+        color:   rgb(0, 59, 74);
+        font-family: 'Lato', sans-serif;
+        font-size: 0.70rem;
+        font-weight: 700;
+        align-items: center;
+        cursor: pointer;
     }
 }
 /* Estilos específicos para pantallas de escritorio*/
 @media (min-width: 992px) {
+    .entrada-articulosrecientes h2 {
+        font-size: 1.5rem;  
+        font-family: 'Lato', sans-serif;
+        margin-bottom: 5px;
+        font-weight: 900;
+    }
     .entrada-container {
         display: grid;
         grid-template-columns: 1fr 1fr;
-        gap: 20px;
         padding: 20px 150px;
         padding-left: 150px;
     }
@@ -1167,23 +1200,45 @@ ENTRADA
         width: calc(50% - 10px);
         align-items: center;
     }
-    .entrada-botones-categorias  {
+    .entrada-recuadro-categorias  {
         width: calc(100% - 10px);
         height: auto;
     }
-    .entrada-botones-categorias ul .categoria button {
-        font-size: 1rem;
-        margin: auto;
-        padding:10px;
-        gap: 10px;
+    .entrada-recuadro-categorias ul .categoria {
+        width: fit-content;
+        display: inline-flex;
+    }
+    .entrada-recuadro-categorias ul .categoria a {
+        background-color: rgb(255, 255, 255);
+        color:   rgb(0, 59, 74);
+        font-family: 'Lato', sans-serif;
+        font-size: 0.70rem;
+        font-weight: 700;
+        align-items: center;
+        cursor: pointer;
     }
 
     .entrada-articulosrecientes .articulos-recientes {
         display: flex;
         flex-direction: column; /* Cambia la dirección a columna */
     }
-}
+    .entrada-articulosrecientes .articulo-blog {
+        margin-bottom: 5px;
+    }
+    .entrada-articulosrecientes .articulo-blog .categoria {
+        position: absolute;
+        top: 0;
+        left: 0;
+        background-color: rgb(0, 59, 74);
+        color: rgb(255, 255, 255);
+        border: 0;
+        padding: 5px;
+        font-size: 0.7rem;
+        margin: 15px;
+        font-family: 'Lato', sans-serif;   
+    }
 
+}
 
 /***************VÍDEOS***********************/
 
@@ -1191,78 +1246,82 @@ ENTRADA
     background-color: rgb(247, 247, 247);
     color: rgb(0, 59, 74);
     font-family: 'Lato', sans-serif;
-    padding: 30px;
+    padding: 10px;
     width: 100%;
 }
+.videos-container .titular-video {
+    font-family: 'Noto Serif', serif;
+    font-weight: 700;
+    color: rgb(0, 59, 74);
+    font-size: 2.5rem;
+    padding: 15px
+}
+
 
 /* Pantalla pequeña  */
 @media (max-width: 575px) {
-    .videos-container h1 {
+    .videos-container .titular-video {
         font-size: 2rem;
-        padding: 20px 5px;
-    }
-
-    .videos-container .card-video {
-        background-color: rgb(255, 255, 255);
-        width: calc(100% - 10px);
-        margin-bottom: 40px;
-        color: rgb(0, 59, 74);
-    }
-
-    .videos-container .card-video .video {
-        width: 100%;
-        position: relative;
-        overflow: hidden;
-        padding-bottom: 56.25%; /* Esto mantiene la proporción de 16:9 para los videos */
-    }
-    .videos-container .card-video .video iframe {
-        width: 100%;
-        height: 100%;
-        position: absolute;
-        top: 0;
-        left: 0;
-    }
-    .videos-container .card-video .info-video {
-        padding: 15px;
-    }
-    .videos-container .card-video .info-video h2{
-        margin-bottom: 10px;
-        margin: 5px;
-        font-weight: 900;
-    }
-    .videos-container .card-video .info-video p {
-        margin-bottom: 10px;
-        margin: 5px;
-}
-}
-/* Estilos específicos para pantallas medianas */
-@media (min-width: 768px) and (max-width: 991px) {
-    .videos-container h1 {
-        font-size: 2.5rem;
-        padding: 20px 5px;
     }
     .videos-container .videos {
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        gap: 20px;
+        display: flex;
+        flex-direction: column;
+        padding: 30px;
     }
     .videos-container .card-video {
-        width: calc(50% - 10px); /* Ajusta el ancho de cada tarjeta de vídeo (50% del ancho total con espacio entre columnas) */
         background-color: rgb(255, 255, 255);
         width: 100%;
         margin-bottom: 40px;
         color: rgb(0, 59, 74);
-        padding: 15px;
     }
-    
     .videos-container .card-video iframe {
-        width: 100%; /* Ajusta el ancho del iframe al 100% de su contenedor */
-        height: 100%; /* Ajusta la altura del iframe al 100% de su contenedor */
+        width: 100%; 
+        height: 100%;
     }
+    .videos-container .card-video .info-video {
+        padding: 5px;
+    }    
     .videos-container .card-video .info-video h2{
         margin-bottom: 10px;
         margin: 15px;
         font-weight: 900;
+        font-family: 'Noto Serif', serif;
+    }
+    .videos-container .card-video .info-video p {
+        margin-bottom: 10px;
+        margin: 15px;
+    }
+
+}
+
+
+/* Estilos específicos para pantallas medianas */
+@media (min-width: 768px) and (max-width: 991px) {
+    .videos-container .titular-video {
+        font-size: 3rem;
+        padding: 20px;
+    }
+    .videos-container .videos {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        padding: 30px;
+        gap: 20px;
+    }
+    .videos-container .card-video {
+        background-color: rgb(255, 255, 255);
+        margin-bottom: 20px;
+        color: rgb(0, 59, 74);
+    }
+    
+    .videos-container .card-video iframe {
+        height: 100%; 
+        width: 100%;
+    }
+    .videos-container .card-video .info-video h2 {
+        margin-bottom: 10px;
+        margin: 15px;
+        font-weight: 900;
+        font-size: 1.3rem;
     }
     .videos-container .card-video .info-video p {
         margin-bottom: 10px;
@@ -1271,32 +1330,27 @@ ENTRADA
 }
 
 /* Estilos específicos para pantallas grandes */
-@media (min-width: 992px)
-.videos-container .card-video .video {
-    width: 100%;
-    position: relative;
-    overflow: hidden;
-    padding-bottom: 55%;
-}
+@media (min-width: 992px) {
     .videos-container h1 {
         font-size: 3rem;
-        padding: 20px 5px;
+        padding: 20px;
     }
     .videos-container .videos {
         display: grid;
         grid-template-columns: repeat(3, 1fr);
         gap: 20px;
+        padding: 10px 50px;
     }
     .videos-container .card-video {
-        width: calc(100% - 20px); /* Ajusta el ancho de cada tarjeta de vídeo (33.333% del ancho total con espacio entre columnas) */
+        width: 100%;
         background-color: rgb(255, 255, 255);
         width: 100%;
         margin-bottom: 40px;
         color: rgb(0, 59, 74);
     }
     .videos-container .card-video iframe {
-        width: 100%; /* Ajusta el ancho del iframe al 100% de su contenedor */
-        height: 100%; /* Ajusta la altura del iframe al 100% de su contenedor */
+        width: 100%; 
+        height: 100%;
     }
     .videos-container .card-video .info-video h2{
         margin-bottom: 10px;
@@ -1307,5 +1361,4 @@ ENTRADA
         margin-bottom: 10px;
         margin: 15px;
 }
-
-
+}
